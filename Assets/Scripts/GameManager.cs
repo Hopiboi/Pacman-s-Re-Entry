@@ -17,6 +17,14 @@ public class GameManager : MonoBehaviour
         NewGame();
     }
 
+    private void Update()
+    {
+        if (this.lives <= 0 && Input.anyKeyDown)
+        {
+            NewRound();
+        }
+    }
+
     private void NewGame()
     {
         SetScore(0);
@@ -35,6 +43,7 @@ public class GameManager : MonoBehaviour
         ResetState();
     }
 
+
     //losing lives only, therefore, resetting the state
     private void ResetState()
     {
@@ -46,6 +55,17 @@ public class GameManager : MonoBehaviour
         this.pacman.gameObject.SetActive(true);
     }
 
+    private void GameOver()
+    {
+        for (int i = 0; i < this.ghost.Length; i++)
+        {
+            this.ghost[i].gameObject.SetActive(false);
+        }
+
+        this.pacman.gameObject.SetActive(false);
+    }
+
+    //current score
     private void SetScore(int score)
     {
         this.score = score;
@@ -54,6 +74,32 @@ public class GameManager : MonoBehaviour
     private void SetLives(int lives)
     {
         this.lives = lives;
+    }
+
+    //ghost was eaten by pacman
+    public void GhostEaten(Ghost ghost)
+    {
+        SetScore(this.score + ghost.points); //current score + amount
+    }
+
+    //pacman got eaten by the ghost
+    public void PacmanEaten()
+    {
+        this.pacman.gameObject.SetActive(false);
+
+        SetLives(this.lives - 1);
+
+        if(this.lives > 0)
+        {
+            // when condition met, name of a function, then will call the function after time passes
+            Invoke(nameof(ResetState), 4f);
+            ResetState();
+        }
+        else
+        {
+            GameOver();
+        }
+
     }
 
 }
