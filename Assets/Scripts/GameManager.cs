@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform pellets;
 
 
-    [SerializeField] public int score { get; private set;}
+    [SerializeField] public int score{ get; private set;}
     [SerializeField] public int lives{ get; private set;}
 
     void Start()
