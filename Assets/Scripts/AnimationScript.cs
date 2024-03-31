@@ -20,7 +20,12 @@ public class AnimationScript : MonoBehaviour
 
     private void Start()
     {
-        
+        InvokeRepeating(nameof(Advance), this.animationTime, this.animationTime);
+    }
+
+    private void Advance()
+    {
+
     }
 
     // Update is called once per frame
