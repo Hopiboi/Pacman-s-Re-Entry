@@ -25,7 +25,12 @@ public class AnimationScript : MonoBehaviour
 
     private void Advance()
     {
+        this.animationFrame++;
 
+        if (this.animationFrame >= this.sprite.Length && this.looping)
+        {
+            this.animationFrame = 0;
+        }
     }
 
     // Update is called once per frame
