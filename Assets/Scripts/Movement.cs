@@ -7,7 +7,7 @@ public class Movement : MonoBehaviour
 {
     [Header("Speed Setting")]
     [SerializeField] private float speed = 8f;
-    [SerializeField] private float speedMultiplier = 8f;
+    [SerializeField] private float speedMultiplier = 2f;
 
     [Header("Direction and Collision")]
     [SerializeField] private Vector2 initialDirection;
@@ -30,12 +30,48 @@ public class Movement : MonoBehaviour
 
     private void Start()
     {
-        
+        ResetState();
     }
 
 
-    void Update()
+    public void ResetState()
     {
-        
+        this.speedMultiplier = 1f;
+        this.direction = this.initialDirection;
+        this.nextDirection = Vector2.zero;
+        this.transform.position = this.startingPosition;
+        this.rg2D.isKinematic = false;
+        this.enabled = true;
+    }
+
+    //FixedUpdate will always for movement/physics
+    private void FixedUpdate()
+    {
+        Vector2 position = this.rg2D.position; // calculate position
+        Vector2 translation = this.direction * this.speed * this.speedMultiplier * Time.fixedDeltaTime; //MovementSpeed and direction
+        this.rg2D.MovePosition(position + translation); // new position
+    }
+
+    //where we want to move if we use pacman, input
+    //can be used for ai of ghost
+    public void SetDirection(Vector2 direction)
+    {
+        //not occupied
+        if (!OccupiedTiles(direction))
+        {
+            this.direction = direction;
+            this.nextDirection = Vector2.zero;
+        }
+        else // occupied
+        {
+            this.nextDirection = direction;
+        }
+    }
+
+    //checking when colliding 
+    public bool OccupiedTiles(Vector2 direction)
+    {
+        RaycastHit2D hit = Physics2D.BoxCast(this.transform.position, Vector2.one * .75f, 0f, direction, 1.5f, this.obstacleLayer);
+        return hit.collider != null;
     }
 }
