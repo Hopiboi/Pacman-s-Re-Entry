@@ -33,6 +33,13 @@ public class Movement : MonoBehaviour
         ResetState();
     }
 
+    private void Update()
+    {
+        if (this.nextDirection != Vector2.zero)
+        {
+            SetDirection(this.nextDirection);
+        }
+    }
 
     public void ResetState()
     {
@@ -54,10 +61,10 @@ public class Movement : MonoBehaviour
 
     //where we want to move if we use pacman, input
     //can be used for ai of ghost
-    public void SetDirection(Vector2 direction)
+    public void SetDirection(Vector2 direction, bool forced = false)
     {
-        //not occupied
-        if (!OccupiedTiles(direction))
+        //not occupied // forcing direction to change
+        if (!OccupiedTiles(direction) || forced)
         {
             this.direction = direction;
             this.nextDirection = Vector2.zero;
