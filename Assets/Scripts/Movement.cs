@@ -61,13 +61,14 @@ public class Movement : MonoBehaviour
 
     //where we want to move if we use pacman, input
     //can be used for ai of ghost
-    public void SetDirection(Vector2 direction, bool forced = false)
+    public void SetDirection(Vector2 direction, bool forced = false) // shorcuts for the another script 
     {
         //not occupied // forcing direction to change
         if (!OccupiedTiles(direction) || forced)
         {
             this.direction = direction;
             this.nextDirection = Vector2.zero;
+            Debug.Log(this.direction);
         }
         else // occupied
         {
@@ -80,5 +81,6 @@ public class Movement : MonoBehaviour
     {
         RaycastHit2D hit = Physics2D.BoxCast(this.transform.position, Vector2.one * .75f, 0f, direction, 1.5f, this.obstacleLayer);
         return hit.collider != null;
+        
     }
 }
