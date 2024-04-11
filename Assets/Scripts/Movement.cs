@@ -37,7 +37,7 @@ public class Movement : MonoBehaviour
     {
         if (this.nextDirection != Vector2.zero)
         {
-            SetDirection(this.nextDirection);
+            SetDirection(this.nextDirection); // next direction when inputting
         }
     }
 
@@ -67,8 +67,7 @@ public class Movement : MonoBehaviour
         if (!OccupiedTiles(direction) || forced)
         {
             this.direction = direction;
-            this.nextDirection = Vector2.zero;
-            Debug.Log(this.direction);
+            this.nextDirection = Vector2.zero; //next move if its pressed
         }
         else // occupied
         {
