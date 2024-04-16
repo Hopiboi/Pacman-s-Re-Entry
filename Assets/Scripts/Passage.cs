@@ -5,12 +5,12 @@ using UnityEngine;
 public class Passage : MonoBehaviour
 {
     [SerializeField] private Transform connection;
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        Vector3 position = collision.transform.position;
-        position.x = this.connection.position.x; //this object position
-        position.y = this.connection.position.y; //this object position
+        Vector3 position = other.transform.position; // who triggers and getting the position
+        position.x = this.connection.position.x; //updating the position
+        position.y = this.connection.position.y; //updating
 
-        collision.transform.position = position; //Moving the object on that position
+        other.transform.position = position; //Teleporting
     }
 }

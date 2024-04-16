@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 141700161}
   - component: {fileID: 141700162}
   - component: {fileID: 141700163}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pacman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6288,7 +6288,7 @@ GameObject:
   - component: {fileID: 161259972}
   - component: {fileID: 161259974}
   - component: {fileID: 161259973}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Node
   m_TagString: Untagged
   m_Icon: {fileID: 0}
