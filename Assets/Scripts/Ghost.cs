@@ -14,14 +14,52 @@ public class Ghost : MonoBehaviour
     public GhostBehavior initialBehavior;
     public Transform target;
 
-    void Start()
+    private void Awake()
     {
-        
+        this.movement = GetComponent<Movement>();
+        this.spawn = GetComponent<GhostSpawn>();
+        this.scatter = GetComponent<GhostScatter>();
+        this.chase = GetComponent<GhostChase>();
+        this.frightened = GetComponent<GhostFrightened>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        ResetState();
+    }
+
+    public void ResetState()
+    {
+        this.gameObject.SetActive(true);
+        this.movement.ResetState();
+
+        this.frightened.Disable();
+        this.chase.Disable();
+        this.scatter.Enable();
+
+        if(this.spawn != this.initialBehavior)
+        {
+            this.spawn.Disable();
+        }
+
+        if(this.initialBehavior != null)
+        {
+            this.initialBehavior.Enable();
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Pacman"))
+        {
+            if (this.frightened.enabled)
+            {
+                FindAnyObjectByType<GameManager>().GhostEaten(this); // not efficient, should call gamemanager and just reference it
+            }
+            else
+            {
+                FindAnyObjectByType<GameManager>().PacmanEaten();
+            }
+        }
     }
 }

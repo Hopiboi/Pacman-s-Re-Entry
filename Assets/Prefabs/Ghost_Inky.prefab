@@ -83,6 +83,10 @@ PrefabInstance:
       propertyPath: initialDirection.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6396416590852890427, guid: 9df68180a6e339149abf8437f4bf7db5, type: 3}
+      propertyPath: initialBehavior
+      value: 
+      objectReference: {fileID: 7800896883895794513, guid: 617e6160b47e7e942939cafdd7ca767b, type: 3}
     - target: {fileID: 6686649773582046182, guid: 9df68180a6e339149abf8437f4bf7db5, type: 3}
       propertyPath: m_LocalPosition.z
       value: -1

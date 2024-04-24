@@ -75,9 +75,24 @@ PrefabInstance:
       propertyPath: initialDirection.y
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 6396416590852890427, guid: 9df68180a6e339149abf8437f4bf7db5, type: 3}
+      propertyPath: initialBehavior
+      value: 
+      objectReference: {fileID: 7800896883895794513}
     - target: {fileID: 6686649773582046182, guid: 9df68180a6e339149abf8437f4bf7db5, type: 3}
       propertyPath: m_LocalPosition.z
       value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9df68180a6e339149abf8437f4bf7db5, type: 3}
+--- !u!114 &7800896883895794513 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4681019138566559221, guid: 9df68180a6e339149abf8437f4bf7db5, type: 3}
+  m_PrefabInstance: {fileID: 3221208946897317540}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfc56e7700e43d546a5623f386f62f3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -52,10 +52,10 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < this.ghost.Length; i++)
         {
-            this.ghost[i].gameObject.SetActive(true);
+            this.ghost[i].ResetState();
         }
 
-        this.pacman.gameObject.SetActive(true);
+        this.pacman.ResetState();
     }
 
     private void GameOver()
