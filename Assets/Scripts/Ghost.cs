@@ -48,6 +48,8 @@ public class Ghost : MonoBehaviour
         }
     }
 
+    //is ghost gonna eaten or the ghost will eat pacman
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.layer == LayerMask.NameToLayer("Pacman"))

@@ -6,7 +6,6 @@ using UnityEngine;
 
 public abstract class GhostBehavior : MonoBehaviour
 {
-
     public Ghost ghost { get; private set; }
     [SerializeField] private float duration;
 

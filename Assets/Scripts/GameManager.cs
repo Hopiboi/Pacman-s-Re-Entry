@@ -97,8 +97,7 @@ public class GameManager : MonoBehaviour
         if(this.lives > 0)
         {
             // when condition met, name of a function, then will call the function after time passes
-            Invoke(nameof(ResetState), 4f);
-            ResetState();
+            Invoke(nameof(ResetState), .8f);
         }
         else
         {
