@@ -7,9 +7,25 @@ public class GhostSpawn : GhostBehavior
     [SerializeField] private Transform insideTransform;
     [SerializeField] private Transform outsideTransform;
 
+    private void OnEnable()
+    {
+        StopAllCoroutines();
+    }
+
     private void OnDisable()
     {
-        StartCoroutine(ExitTransition());
+        if(this.gameObject.activeSelf)
+        {
+            StartCoroutine(ExitTransition());
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(this.enabled && collision.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
+        {
+            this.ghost.movement.SetDirection(-this.ghost.movement.direction);
+        }
     }
 
     private IEnumerator ExitTransition()
@@ -23,6 +39,7 @@ public class GhostSpawn : GhostBehavior
         float duration = 0.5f;
         float elapsed = 0f;
 
+        // Animation of Ghost going inside(Center)
         while (elapsed < duration)
         {
             Vector3 newPosition = Vector3.Lerp(position, this.insideTransform.position, elapsed/duration);
@@ -34,6 +51,7 @@ public class GhostSpawn : GhostBehavior
 
         elapsed = 0f;
 
+        // Animation of Ghost going Outside Via Inside
         while (elapsed < duration)
         {
             Vector3 newPosition = Vector3.Lerp(this.insideTransform.position, this.outsideTransform.position, elapsed / duration);

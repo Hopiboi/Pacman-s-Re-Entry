@@ -113,7 +113,7 @@ public class GameManager : MonoBehaviour
 
         if (!HasRemainingPellets())
         {
-            Invoke(nameof(NewRound), 3f);
+            Invoke(nameof(NewRound), 1f);
         }
     }
     

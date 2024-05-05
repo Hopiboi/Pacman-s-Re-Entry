@@ -18,6 +18,7 @@ public abstract class GhostBehavior : MonoBehaviour
     public void Enable()
     {
         Enable(this.duration);
+
     }
 
     public virtual void Enable(float duration)
