@@ -51,10 +51,4 @@ public class AnimationScript : MonoBehaviour
 
         Advance();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

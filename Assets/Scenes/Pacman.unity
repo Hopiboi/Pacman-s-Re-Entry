@@ -9872,6 +9872,10 @@ PrefabInstance:
       propertyPath: outsideTransform
       value: 
       objectReference: {fileID: 1940822062}
+    - target: {fileID: 1203573375674706925, guid: 17c7980f99ee11f4d99ad54a0727211e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1904970715029829608, guid: 17c7980f99ee11f4d99ad54a0727211e, type: 3}
       propertyPath: m_Name
       value: Ghost_Blinky
@@ -9928,9 +9932,21 @@ PrefabInstance:
       propertyPath: duration
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 3745481420280749258, guid: 17c7980f99ee11f4d99ad54a0727211e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4399424053472779097, guid: 17c7980f99ee11f4d99ad54a0727211e, type: 3}
       propertyPath: duration
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5122771709208354191, guid: 17c7980f99ee11f4d99ad54a0727211e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6987762265477482028, guid: 17c7980f99ee11f4d99ad54a0727211e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17c7980f99ee11f4d99ad54a0727211e, type: 3}
