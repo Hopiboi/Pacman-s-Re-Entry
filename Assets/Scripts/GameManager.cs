@@ -18,8 +18,10 @@ public class GameManager : MonoBehaviour
         NewGame();
     }
 
+    
     private void Update()
     {
+        //Restarting the game
         if (this.lives <= 0 && Input.anyKeyDown)
         {
             NewRound();
@@ -119,6 +121,13 @@ public class GameManager : MonoBehaviour
     
     public void PowerPelletEaten(PowerPellet pellet)
     {
+
+        for (int i = 0; i < this.ghost.Length; i++)
+        {
+            this.ghost[i].frightened.Enable(pellet.duration);
+        }
+
+
         PelletEaten(pellet);
         CancelInvoke();
         Invoke(nameof(ResetMultiplier),pellet.duration);

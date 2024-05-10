@@ -6,8 +6,8 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     [Header("Speed Setting")]
-    [SerializeField] private float speed = 8f;
-    [SerializeField] private float speedMultiplier = 2f;
+    [SerializeField] private float speed = 6f;
+    [SerializeField] public float speedMultiplier = 1f;
 
     [Header("Direction and Collision")]
     [SerializeField] private Vector2 initialDirection;
@@ -19,8 +19,6 @@ public class Movement : MonoBehaviour
     [SerializeField] public Vector3 startingPosition { get; private set; }
 
     public Rigidbody2D rg2D { get; private set; }
-
-
     
     private void Awake()
     {

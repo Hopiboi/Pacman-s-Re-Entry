@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GhostSpawn : GhostBehavior
 {
-    [SerializeField] private Transform insideTransform;
+    [SerializeField] public Transform insideTransform;
     [SerializeField] private Transform outsideTransform;
 
     private void OnEnable()
